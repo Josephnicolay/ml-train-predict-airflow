@@ -60,7 +60,6 @@ def train_model(train_data_path):
     import os
     from pathlib import Path
     import pickle
-    import uuid
     import pandas as pd
     from sklearn.linear_model import LogisticRegression
     from sklearn.metrics import accuracy_score
@@ -76,7 +75,7 @@ def train_model(train_data_path):
     print(f"Training accuracy: {accuracy}")
 
     (WORKING_DIR / "model").mkdir(parents=True, exist_ok=True)
-    model_path = WORKING_DIR / f"model/model_{uuid.uuid4().hex}.pkl"
+    model_path = WORKING_DIR / f"model/model.pkl"
     with open(model_path, "wb") as f:
         pickle.dump(model, f)
 
