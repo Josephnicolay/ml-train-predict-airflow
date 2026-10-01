@@ -17,8 +17,8 @@ params = {
     start_date=datetime(2026, 1, 1, tzinfo=pytz.timezone(TZ)),
     schedule_interval=None,
     params=params,
-    # on_failure_callback = lambda context: failure_email(context),
-    # on_success_callback = lambda context: success_email(context)
+    on_failure_callback = lambda context: failure_email(context),
+    on_success_callback = lambda context: success_email(context)
 )
 def dag_model_predict():
     data = preprocess_data()

@@ -11,8 +11,8 @@ TZ = os.getenv("TZ", "UTC")
     dag_id="model_train",   
     start_date=datetime(2026, 1, 1, tzinfo=pytz.timezone(TZ)),
     schedule_interval=None,
-    # on_failure_callback = lambda context: failure_email(context),
-    # on_success_callback = lambda context: success_email(context)
+    on_failure_callback = lambda context: failure_email(context),
+    on_success_callback = lambda context: success_email(context)
 )
 def dag_model_train():
     data = get_data()
